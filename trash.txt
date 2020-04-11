@@ -1,0 +1,108 @@
+/*From scripts.js, line 1*/
+function readable(){
+	let interests = document.getElementsByClassName("skill");
+	//console.log(interests);
+
+	for (let i = 0; i < interests.length; i++) {
+		interests[i].style.color = "yellow";
+	}
+
+	let details = document.getElementsByClassName("meta");
+	console.log(details);
+
+	for (let i = 0; i < details.length; i++) {
+		details[i].style.color = "white";
+	}
+}
+
+
+
+/*From visitor_process.php, line 34 and line 41.*/
+if (isset($_POST["message"]) && isset($_POST["visitor_id"])) {
+
+				$message = mysqli_real_escape_string($conn, verifyVisitorInput($_POST["message"]));
+				$visitor_id = (int)$_POST["visitor_id"];
+
+				require_once("functions/functions.php");
+				if (sendMessage($message, $visitor_id) == true) {
+					//message was sent...
+					require_once("functions/alerts.php");
+					alert_success("Message sent");
+				}
+
+			}
+
+
+
+
+/*From retrieve_message.php, line 6*/
+$query = "SELECT visitors.`id`, visitors.`name`, visitors.`email`, visitors.`tel`, messages.`message`, messages.`date_created`, message`visitors_id` FROM visitors LEFT JOIN messages ON visitors.id = messages.visitors_id WHERE messages.deleted = 0";
+	$result = mysqli_query($conn, $query);
+
+
+
+
+
+<div class="row top">
+	<div class="col info">
+		<h1><strong>Etaoghene</strong> <small>Chimaobi</small></h1>
+		<div id="aka">
+			<small><em>a.k.a. Etarious</em></small>
+		</div>
+		
+		<nav class="nav navbar-nav">
+			<ul>
+				<li class="love"><span class="fa fa-bible"></span> The Word of God</li>  |  
+				<li class="love"><span class="fa fa-code"></span> Programming</li>  |  
+				<li class="love"><span class="fa fa-music"></span> Music</li>  |  
+				<li class="love"><span class="fa fa-print"></span> Printing</li>  |  
+				<li class="love"><span class="fa fa-globe"></span> Creativity</li>  |  
+				<li class="love"><span class="fa fa-book"></span> Knowledge</li>
+			</ul>
+		</nav>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+				<button data-tippy-content="Tooltip" id="word">The Word of God</button>
+				<button data-tippy-content="Tooltip" id="word">The Word of God</button>
+				<div class="skill-meta">
+					<!-- <h4 class="skill">The Word of God</h4> -->
+					<!--<span class="meta">I am in love with Jesus, and He is in love with me. I came to understand that I didn't just come to this world because my dad met my mum, but because I have something to accomplish on this earth. And I discovered it in the Word of God, and now am depending on the Word of God for the renewal of my mind.</span>-->
+				</div>
+				<div class="skill-meta">
+					<h4 class="skill">Programming</h4>
+					<!--<span class="meta">Programming is a very creative knowledge/skill/talent. It brings out my creativity. I want to make people's lives easier, and help them achieve their dreams better and faster. I aim at using tech to improve and help renew our minds to a perfect state, although not through <strong>BCIs</strong> (Brain to Computer Interface).</span>-->
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="skill-meta">
+					<button data-tippy-content="Tooltip" id="word">The Word of God</button>
+					<button data-tippy-content="Tooltip" id="word">The Word of God</button>
+					<h4 class="skill">Music</h4>
+					<!--<span class="meta">Music is a universal language, which I love speaking so much. It has its's way of communicating with my mind and heart. I do music as a hobby, but if money comes out of the hubby I do, who am I to reject? It also helps my creativity and puts my mind to work.</span>-->
+				</div>
+				<div class="skill-meta">
+					<h4 class="skill">Printing</h4>
+					<!--<span class="meta">Printinig and design is beautiful. It reveals the beauty of an information. It helps me express the feeling in the details of an information I try to pass to people, be it a publicity/advertisment or a notice, as long as it's an information.</span>-->
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="skill-meta">
+					<h4 class="skill">Creativity</h4>
+					<!--<span class="meta">Everything I am interested in is based on creativity. Creativity helps you build the world around you. It's interestingly powerful that creativity has the capability to give rise to inexistence. And the mind is the greatest instrument/weapon given to man by God for creation.</span>-->
+				</div>
+				<div class="skill-meta">
+					<h4 class="skill">Knowledge</h4>
+					<!--<span class="meta">"...through knowledge shall the just be delivered."<small><em>Proverbs 9:11</em></small> says the Lord. To be creative in creation you need knowledge. I believe knowledge can both build and destroy, save and kill, it only depends on the kind of knowledge you feed your minds with. That's why I'll recommend the Word of God anytime anywhere.</span>-->
+				</div>
+			</div>
